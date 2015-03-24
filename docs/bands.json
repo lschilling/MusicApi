@@ -1,0 +1,176 @@
+{
+    "apiVersion": "1.0",
+    "swaggerVersion": "1.2",
+    "basePath": "http://api.lrs3.com/api",
+    "resourcePath": "/bands",
+    "produces": [
+        "application/json"
+    ],
+    "apis": [
+        {
+            "path": "/bands",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Finds all bands",
+                    "notes": "Returns a list of all bands, allowing you to genre via query.",
+                    "nickname": "getBands",
+                    "type": "Band",
+                    "parameters": [
+                        {
+                            "name": "genre",
+                            "description": "a genre query to search across bands",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string",
+                            "paramType": "query"
+                        }
+                    ],
+                    "produces": [
+                        "application/json"
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "There are no bands"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/bands/{id}",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Retrieve a band using the Band ID",
+                    "notes": "Returns a band detail",
+                    "type": "Band",
+                    "nickname": "getBand",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "description": "id for the band, notice this is in the path, not a query variable",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "integer",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid Application Information ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Band not found"
+                        }
+                    ]
+                },
+		{
+                    "httpMethod": "DELETE",
+                    "summary": "Delete a band using the Band ID",
+                    "notes": "There is no response object.",
+                    "type": "Band",
+                    "nickname": "deleteBand",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "description": "id for the band, notice this is in the path, not a query variable",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "integer",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid Application Information ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Band not found"
+                        }
+                    ]
+                },
+		{
+                    "httpMethod": "PUT",
+                    "summary": "Update a band using the Band ID",
+                    "notes": "There is no response object.",
+                    "type": "Band",
+                    "nickname": "updateBand",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "description": "id for the band, notice this is in the path, not a query variable",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "integer",
+                            "paramType": "path"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid Application Information ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Band not found"
+                        }
+                    ]
+                },
+		{
+                    "httpMethod": "POST",
+                    "summary": "Add a band",
+                    "notes": "The created band is the response object.",
+                    "type": "Band",
+                    "nickname": "addBand",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid Application Information ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Band not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "Bands": {
+            "id": "Bands",
+            "properties": {
+                "Id": {
+                    "type": "integer"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "SortName": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

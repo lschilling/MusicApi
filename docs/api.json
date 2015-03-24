@@ -1,0 +1,16 @@
+{
+	"apiVersion": "1.0",
+	"espiVersion": "1.1",
+	"apis": [
+		{
+			"name": "bands",
+			"path": "http://api.lrs3.com/docs/bands.json",
+			"description": "The Bands API"
+		},
+		{
+			"name": "albums",
+			"path": "http://api.lrs3.com/docs/albums.json",
+			"description": "The Albums API"
+		}
+	]
+}
